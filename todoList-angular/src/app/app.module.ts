@@ -1,18 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {TodoComponent} from './todo/todo.component';
+import {TodoService} from './todo.service';
+import {AppComponent} from './app.component';
+
+
+const routes: Routes = [
+	{path: '', component: TodoComponent, pathMatch: 'full'},
+	{path: ':filter', component: TodoComponent}
+];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		TodoComponent
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		RouterModule.forRoot(routes, {useHash: true})
+	],
+	providers: [TodoService],
+	bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
