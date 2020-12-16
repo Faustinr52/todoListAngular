@@ -93,4 +93,7 @@ export class TodoComponent implements OnInit, DoCheck, OnDestroy {
 	clearCompleted() {
 		this.todoService.clearCompleted();
 	}
+	effacerTout(){
+		this.todoService.unDo();
+	}
 }

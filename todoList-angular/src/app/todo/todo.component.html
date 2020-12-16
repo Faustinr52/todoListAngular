@@ -59,10 +59,14 @@
   .info{
     font-size: large;
     color: #b83f45;
+    float: right;
   }
   legend{
     color: #b83f45;
     font-size: larger;
+  }
+  fieldset{
+    width: 100%;
   }
   </style>
   
@@ -121,13 +125,14 @@
           <li><a [routerLink]="['', 'active']" [ngClass]="{'selected': filter == 'SHOW_ACTIVE'}">Active</a></li>
           <li><a [routerLink]="['', 'completed']" [ngClass]="{'selected': filter == 'SHOW_COMPLETED'}">Completed</a>
           </li>
+          <li (click)="effacerTout()"><a >Effacer tout</a></li>
         </ul>
         <button *ngIf="completed > 0" class="clear-completed" (click)="clearCompleted()">Clear completed</button>
       </footer>
     </section>
   </div>
 </fieldset>
-<div style="float: right;">
+<div style="float: left;margin-right : 200px;">
   <qrcode [qrdata]="'Your data string'" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
 </div>
 <footer class="info">
