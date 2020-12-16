@@ -60,6 +60,10 @@
     font-size: large;
     color: #b83f45;
   }
+  legend{
+    color: #b83f45;
+    font-size: larger;
+  }
   </style>
   
   <div class="toolbar" role="banner">
@@ -81,7 +85,7 @@
   </div>
 <br>
 <fieldset>
-  <legend>Projet Web Avancée</legend>
+  <legend>Projet : Programmation Web Avancée</legend>
   <div>
     <section class="todoapp">	
       <header class="header">
@@ -118,12 +122,14 @@
           <li><a [routerLink]="['', 'completed']" [ngClass]="{'selected': filter == 'SHOW_COMPLETED'}">Completed</a>
           </li>
         </ul>
-    
         <button *ngIf="completed > 0" class="clear-completed" (click)="clearCompleted()">Clear completed</button>
       </footer>
     </section>
   </div>
 </fieldset>
+<div style="float: right;">
+  <qrcode [qrdata]="'Your data string'" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+</div>
 <footer class="info">
 	<p>Double-click to edit the item</p>
 </footer>

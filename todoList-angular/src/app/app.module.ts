@@ -6,6 +6,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {TodoComponent} from './todo/todo.component';
 import {TodoService} from './todo.service';
 import {AppComponent} from './app.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
 	],
 	imports: [
 		BrowserModule,
+		QRCodeModule,
 		FormsModule,
 		RouterModule.forRoot(routes, {useHash: true})
 	],
