@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, DoCheck, OnDestroy, OnInit} from '@a
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 
-import {Todo, TodoUtils} from './todo.model';
+import { Todo, TodoUtils } from './todo.model';
 import {Filter, FilterUtil} from './filter.model';
 import {TodoService} from '../todo.service';
 
@@ -27,11 +27,9 @@ export class TodoComponent implements OnInit, DoCheck, OnDestroy {
 	remaining: number;
 	allCompleted: boolean;
 
-
 	constructor(private todoService: TodoService, private route: ActivatedRoute) {
 	}
 
-	// ~ lifecycle
 
 	ngOnInit() {
 		this.routeSubscription = this.route.params.subscribe(params => {
@@ -51,7 +49,6 @@ export class TodoComponent implements OnInit, DoCheck, OnDestroy {
 		this.routeSubscription.unsubscribe();
 	}
 
-	// ~ crud
 
 	create(todo: string) {
 		if (todo.trim().length === 0) {
@@ -94,6 +91,10 @@ export class TodoComponent implements OnInit, DoCheck, OnDestroy {
 		this.todoService.clearCompleted();
 	}
 	effacerTout(){
-		this.todoService.unDo();
+		this.todoService.effacer();
 	}
+	myFunction(){
+		alert('hello')
+	}
+	
 }

@@ -7,6 +7,6 @@ import {Component} from '@angular/core';
 export class AppComponent {
 	public myAngularxQrCode: string = null;
 	constructor () {
-	  this.myAngularxQrCode = 'Your QR code data string';
+	  this.myAngularxQrCode = 'My angular app';
 	}
 }

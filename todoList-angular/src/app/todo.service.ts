@@ -58,7 +58,7 @@ export class TodoService {
 		this.todos = this.todos.filter((t) => !t.completed);
 		this.save();
 	}
-	unDo() {
+	effacer() {
 		this.todos = this.todos.filter((t) => !t.completed && t.completed);
 		this.save();
 	}
@@ -87,5 +87,4 @@ export class TodoService {
 	private save(): void {
 		localStorage.setItem(TodoService.STORAGE_KEY, JSON.stringify(this.todos));
 	}
-
 }

@@ -59,7 +59,6 @@
   .info{
     font-size: large;
     color: #b83f45;
-    float: right;
   }
   legend{
     color: #b83f45;
@@ -94,14 +93,14 @@
     <section class="todoapp">	
       <header class="header">
         <h1>Todo List</h1>
-        <input class="new-todo" placeholder="What needs to be done?"
+        <input id = "item" class="new-todo" placeholder="What needs to be done?"
              #todo [(ngModel)]="newTodo" (keyup.enter)="create(todo.value)" autofocus>
       </header>
     
       <section *ngIf="todos.length > 0" class="main">
         <input class="toggle-all" id="toggle-all" type="checkbox"
              #inputToggleAll [checked]="allCompleted" (click)="toggleAll(inputToggleAll.checked)">
-        <label for="toggle-all">Mark all as complete</label>
+        <label  for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
           <li *ngFor="let todo of filteredTodos"
              [ngClass]="{'completed' : todo.completed, 'editing': todo == currentTodo}">
@@ -129,12 +128,12 @@
         </ul>
         <button *ngIf="completed > 0" class="clear-completed" (click)="clearCompleted()">Clear completed</button>
       </footer>
+      <button class="footer" (click)="myFunction()" >Undo</button>
+      <button class="footer" >Redo</button>
     </section>
   </div>
+  <p class="info">Double-click to edit the item</p>
 </fieldset>
-<div style="float: left;margin-right : 200px;">
+<div>
   <qrcode [qrdata]="'Your data string'" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
 </div>
-<footer class="info">
-	<p>Double-click to edit the item</p>
-</footer>
