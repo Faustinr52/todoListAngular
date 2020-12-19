@@ -1,19 +1,21 @@
-<!-- <router-outlet></router-outlet> -->
+<router-outlet *ngIf = "isSignedIn" (isLogout) = "handleLogout()"></router-outlet>
 <div *ngIf = "!isSignedIn">
 
     <h2>Sign up</h2>
     <input type="text" #emailSignup >
-    <input type="text" #passwordSignup>
+    <input type="password" #passwordSignup>
     <button (click) = "onSignup(emailSignup.value,passwordSignup.value)">Sign up</button>
     
-    </div>
-    <div *ngIf = "!isSignedIn">
+</div>
+<hr>
+<app-login> Log out</app-login>
+<!-- <div *ngIf = "!isSignedIn">
+
+    <h2>Sign in</h2>
+    <input type="text" #email >
+    <input type="password" #password>
+    <button (click) = "onSignin(email.value,password.value)">Sign in</button>
     
-        <h2>Sign in</h2>
-        <input type="text" #email >
-        <input type="text" #password>
-        <button (click) = "onSignin(email.value,password.value)">Sign in</button>
-        
-        </div>
-<app-login *ngIf = "isSignedIn" (isLogout) = "handleLogout()"></app-login>    
+</div> -->
+<!-- <button (click) = "logout()" (isLogout) = "handleLogout()">Log out</button> -->
                                                                                                             

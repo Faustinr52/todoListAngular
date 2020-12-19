@@ -1,15 +1,14 @@
 import {Component} from '@angular/core';
 import { FirebaseService } from './services/firebase.service';
 
+
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html'
 })
 export class AppComponent {
-	// public myAngularxQrCode: string = null;
-	// constructor () {
-	//   this.myAngularxQrCode = 'My angular app';
-	// }
+	public myAngularxQrCode: string = 'My angular app';;
+	title = 'angular todo-list';
 	isSignedIn = false;
 	constructor (public FirebaseService : FirebaseService){}
 	ngOnInit(){
@@ -20,16 +19,15 @@ export class AppComponent {
 	}
 	async onSignup(email : string,password: string){
 		await this.FirebaseService.signup(email,password)
-		if(this.FirebaseService.isloggedIn)
+		if(this.FirebaseService.isLoggedIn)
 		this.isSignedIn = true
 	}
 	async onSignin(email : string,password: string){
 		await this.FirebaseService.signin(email,password)
-		if(this.FirebaseService.isloggedIn)
+		if(this.FirebaseService.isLoggedIn)
 		this.isSignedIn = true
 	}
 	handleLogout(){
 		this.isSignedIn = false
-		
 	}
 }
